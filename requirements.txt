@@ -1,0 +1,13 @@
+numpy>=1.23
+pandas>=1.5
+scikit-learn>=1.2
+joblib>=1.2
+catboost>=1.2
+lightgbm>=4.0
+torch>=2.0
+gymnasium>=0.29
+
+# Optional
+optuna>=3.0            # scripts/tune.py
+imbalanced-learn>=0.11 # --oversample
+# transformers>=4.30   # DDPG 'llm' and 'hybrid' actors

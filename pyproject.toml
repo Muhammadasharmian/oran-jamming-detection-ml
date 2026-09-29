@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jamming-detection"
+version = "1.0.0"
+description = "Machine learning models for jamming detection in O-RAN / 5G NR networks from gNB KPM data."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Muhammad Ashar Mian" }]
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "scikit-learn>=1.2",
+    "joblib>=1.2",
+    "catboost>=1.2",
+    "lightgbm>=4.0",
+    "torch>=2.0",
+    "gymnasium>=0.29",
+]
+
+[project.optional-dependencies]
+tuning = ["optuna>=3.0"]
+oversampling = ["imbalanced-learn>=0.11"]
+llm = ["transformers>=4.30"]
+dev = ["pytest>=7.0", "ruff>=0.4"]
+all = ["optuna>=3.0", "imbalanced-learn>=0.11", "transformers>=4.30"]
+
+[tool.setuptools.packages.find]
+include = ["jamming_detection*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]
+ignore = ["UP006", "UP007", "UP035", "UP045", "B008", "E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
